@@ -59,7 +59,7 @@ void compile(string path,string process_name, string state1, string state2){
   process_info.close();
  
   string path_to_compile = path + "/" + process_name;
-  string comando = "g++ -DPATH=" + path_to_compile + " -DNAME=" + process_name + " -o " + path_to_compile
+  string comando = "g++ -DPATH=" + path_to_compile + " -DNAME=" + process_name + " -std=c++11 -o " + path_to_compile
     + "/" + process_name + " generator.cpp"; 
   str_2_sh(comando);
 

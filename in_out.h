@@ -16,16 +16,27 @@ float Mass(float E, float px, float py, float pz){
 
 void CM_2_lab(){
 
-  float g{0};
+  long g{0};
   float pz;
   float E;
+  int index;
+  int part;
   
-  g = p_in[1].energy/p_in[1].mass;
-  float P = p_in[1].mom[2]/p_in[1].mass;
-  E = (p_in[0].energy - p_in[0].mom[2]*P)*g;
-  pz = (p_in[0].mom[2] - p_in[0].energy*P)*g;
-  p_in[0].energy = E;
-  p_in[0].mom[2] = pz;
+  if(p_in[0].mass != 0){
+    index = 0;
+    part = 1;
+    }
+
+  else if(p_in[1].mass != 0){
+    index = 1;
+    part = 0;
+    }
+  g = p_in[index].energy/p_in[index].mass;
+  float P = p_in[index].mom[2]/p_in[index].mass;
+  E = (p_in[part].energy - p_in[part].mom[2]*P)*g;
+  pz = (p_in[part].mom[2] - p_in[part].energy*P)*g;
+  p_in[part].energy = E;
+  p_in[part].mom[2] = pz;
 
   for(int i = 0; i < Nparticles; i++){
     
@@ -35,8 +46,8 @@ void CM_2_lab(){
     p_out[i].mom[2] = pz;
   }
 
-  p_in[1].energy = p_in[1].mass;
-  p_in[1].mom[2] = 0;
+  p_in[index].energy = p_in[index].mass;
+  p_in[index].mom[2] = 0;
 }
 
 void prepare(string path, string name){
@@ -72,7 +83,7 @@ void prepare(string path, string name){
 void write_file(){
 
   fprintf(events,"<event>\n");
-  fprintf(events,"%2d    %2d  %2d %2d %2d\n", Nparticles+2,1,1,-1,-1,-1);
+  fprintf(events,"%2d    %2d  %2d %2d %2d %2d\n", Nparticles+2,1,1,-1,-1,-1);
 
   float Mas{0};
 

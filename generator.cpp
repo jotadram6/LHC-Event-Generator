@@ -45,6 +45,8 @@ int main(){
   kin_check(E1, E2);  //Check that the process is kinematically allowed
 
   cout << "Generating events" << endl;
+
+  float max_val[Nparticles];
   for(int i = 0; i < n_events; i++){
     cout << (100*i)/n_events << "%\r";
     std::cout.flush();
@@ -76,7 +78,7 @@ int main(){
       for(int j = 0; j < Nparticles-1; j++){
       
       En = (aux - p_out[j].mass) * (static_cast<float>(rand()))/(static_cast<float>(RAND_MAX)) + p_out[j].mass;
-      theta = M_PI * (static_cast<float>(rand()))/(static_cast<float>(RAND_MAX)) - 0.5 * M_PI;
+      theta = 2*M_PI * (static_cast<float>(rand()))/(static_cast<float>(RAND_MAX));
       p_out[j].energy = En;
       p = sqrt(En*En - p_out[j].mass*p_out[j].mass);
       p_out[j].mom[0] = p * sin(theta);
