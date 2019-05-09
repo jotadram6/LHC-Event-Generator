@@ -22,8 +22,17 @@ void spin_check(){
   }
 
   //Spin check, if is violated kill the process
-  if(sum_spin1 != sum_spin2){
+  float frac1 = sum_spin1 - int(sum_spin1);
+  float frac2 = sum_spin2 - int(sum_spin2);
+  //if(sum_spin1 != sum_spin2){
+  if(frac1 == 0 && frac2 != 0){
     cout << "The process violates spin conservation" << endl;
+    cout << "Process stopped" << endl;
+    exit(0);
+  }
+
+  if(frac1 != 0 && frac2 == 0){
+    cout << "The process violates helicity conservation" << endl;
     cout << "Process stopped" << endl;
     exit(0);
   }
