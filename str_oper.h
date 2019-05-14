@@ -4,11 +4,15 @@
 
 using namespace std;
 
+
+//Structure of a vector string of two components
 struct st_spl{
   string s[2];
 };
 
+//Function to split a string into two with a delimeter and return each one in a component
 st_spl split_str(string line, string delimeter){
+  
   int cont{0};
   st_spl out;
 
@@ -31,6 +35,7 @@ st_spl split_str(string line, string delimeter){
   return out;
 }
 
+//Function to run a shell command from a string
 void str_2_sh(string command){
 
   char shell[command.length()+1];
