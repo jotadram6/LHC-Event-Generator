@@ -16,6 +16,6 @@ void help(){
   cout << "Set an output folder for a process typing 'output folder_name' without quotes\n";
   cout << "To generate and compile a process type 'generate state1 > state2' with spaces and without quotes\n";
   cout << "To launch a process type 'launch folder_name' without quotes\n";
-  cout << "To launch the madanalysis type 'plot folder_name number_of_the_run' without quotes"
+  cout << "To launch the madanalysis type 'plot folder_name number_of_the_run' without quotes";
   cout << "Quit the program typing quit\n";
 }
