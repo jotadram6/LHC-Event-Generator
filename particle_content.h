@@ -13,8 +13,7 @@ struct particle
   float charge;           //Electric charge
   float spin;             //Spin
   double energy;           //Energy
-  double mom[3];           //Mommentum
-  float angle[2];        //Angles theta and phi      
+  double mom[3];           //Momentum
   };
 
 //Masses in GeV, electric charges in e- units
@@ -101,6 +100,7 @@ particle str_2_ptcle(string p_name){
   p_map["vu"] = vu;
   p_map["vt"] = vt;
 
+  //Prevent for bad typing
   if(p_map.find(p_name) == p_map.end()){
     cout << "The particle " << p_name <<" is not defined" << endl;
     cout << "Process stopped" << endl;

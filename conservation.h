@@ -24,14 +24,14 @@ void spin_check(){
   //Spin check, if is violated kill the process
   float frac1 = sum_spin1 - int(sum_spin1);
   float frac2 = sum_spin2 - int(sum_spin2);
-  //if(sum_spin1 != sum_spin2){
-  if(frac1 == 0 && frac2 != 0){
+
+  if(frac1 == 0 && frac2 != 0 && sum_spin2 < sum_spin1){
     cout << "The process violates spin conservation" << endl;
     cout << "Process stopped" << endl;
     exit(0);
   }
 
-  if(frac1 != 0 && frac2 == 0){
+  if(frac1 != 0 && frac2 == 0 && sum_spin1 < sum_spin2){
     cout << "The process violates helicity conservation" << endl;
     cout << "Process stopped" << endl;
     exit(0);
@@ -84,6 +84,8 @@ void check_mom(){
   //mommentum check
   for(int j = 0; j < 3; j++){
     if(sum_mom1[j] != sum_mom2[j]){
+      cout << "The process has violated the momentum conservation in the " << j << "component." << endl;
+      cout << "calculation ended" << endl;
       break;
     }
   }
