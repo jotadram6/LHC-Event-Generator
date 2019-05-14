@@ -6,7 +6,7 @@ An event generator for LHC processes without any physics of the standard model, 
 
 ## The cards
 
-The prog
+The program have a few cards to control some aspects of the program and parameters of the runs. The first one is the param_card in which is placed the path of the folder where the data and the analysis will be saved (first line) and the path to the top folder of madanalysis. The second one is the run_card which is responsible for the parameters of the runs, in the first two lines are the beams energies and in the third lines is the number of events to be generated.
 
 ## How to use
 
