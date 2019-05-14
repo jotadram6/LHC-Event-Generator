@@ -115,6 +115,7 @@ int main(){
   }
   //Close the .lhe
   close_file();
+  cout << "Done!" << endl;
   return 0;
 }
 
